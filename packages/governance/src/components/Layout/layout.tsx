@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { components } from '@oyster/common';
-import { Content, Header } from 'antd/lib/layout/layout';
+import { Content, Header, Footer } from 'antd/lib/layout/layout';
 import Logo from './dark-horizontal-combined-rainbow.inline.svg';
 import { useRpcContext } from '../../hooks/useRpcContext';
 import { getHomeUrl } from '../../tools/routeTools';
@@ -45,13 +45,7 @@ export const AppLayout = React.memo((props: any) => {
       <Layout>
         <Header className="App-Bar">
           <div className="app-title">
-            <a href="">
-              BUILT ON
-            </a>
-            <HomeLink></HomeLink>
-            <a href="https://github.com/solana-labs/solana-program-library/blob/master/governance/README.md">
-              Docs
-            </a>
+            <HomeLogo/>
           </div>
           <AppBar useWalletBadge={true} />
         </Header>
@@ -59,10 +53,27 @@ export const AppLayout = React.memo((props: any) => {
           {/* <Breadcrumb>{breadcrumbItems}</Breadcrumb> */}
           {props.children}
         </Content>
+        <Footer>
+          <div className="app-title">
+            BUILT ON
+            <HomeLink></HomeLink>
+            <a href="https://github.com/solana-labs/solana-program-library/blob/master/governance/README.md">
+              Docs
+            </a>
+          </div>
+        </Footer>
       </Layout>
     </div>
   );
 });
+
+const HomeLogo = () => {
+  return (
+    <>
+    Hammock Labs
+    </>
+  )
+}
 
 const HomeLink = () => {
   const { programId } = useRpcContext();
