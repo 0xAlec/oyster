@@ -61,34 +61,11 @@ export const HomeView = () => {
 
   return (
     <>
-      <Background />
       <Row>
-        <Col flex="auto" xxl={15} xs={24} className="governance-container">
-          <div className="governance-title">
-            <h1>{LABELS.REALMS}</h1>
+        <Col flex="auto" xxl={15} xs={24}>
             <RegisterRealmButton
-              buttonProps={{ style: { marginLeft: 'auto', marginRight: 0 } }}
+              buttonProps={{ style: { justifyContent: 'center'} }}
             />
-          </div>
-          <List
-            itemLayout="vertical"
-            size="large"
-            pagination={false}
-            dataSource={realmItems}
-            renderItem={item => (
-              <List.Item
-                key={item.key}
-                className="governance-item"
-                onClick={() => history.push(item.href)}
-              >
-                <List.Item.Meta
-                  avatar={item.badge}
-                  title={item.title}
-                  description={item.description}
-                ></List.Item.Meta>
-              </List.Item>
-            )}
-          />
         </Col>
       </Row>
     </>

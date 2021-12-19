@@ -98,7 +98,7 @@ export function RegisterRealmButton({
 
   return (
     <ModalFormAction<PublicKey>
-      label="Register Realm"
+      label="Register DAO"
       buttonProps={buttonProps}
       formTitle="Register Realm"
       formAction="Register"

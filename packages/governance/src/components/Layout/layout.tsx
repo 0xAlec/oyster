@@ -45,6 +45,9 @@ export const AppLayout = React.memo((props: any) => {
       <Layout>
         <Header className="App-Bar">
           <div className="app-title">
+            <a href="">
+              BUILT ON
+            </a>
             <HomeLink></HomeLink>
             <a href="https://github.com/solana-labs/solana-program-library/blob/master/governance/README.md">
               Docs
