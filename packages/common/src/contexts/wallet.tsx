@@ -14,11 +14,6 @@ import {
 import {
   getLedgerWallet,
   getPhantomWallet,
-  getSlopeWallet,
-  getSolflareWallet,
-  getSolletWallet,
-  getSolletExtensionWallet,
-  getTorusWallet,
   Wallet,
   WalletName,
 } from '@solana/wallet-adapter-wallets';
@@ -77,31 +72,31 @@ export const WalletModal = () => {
       width={400}
     >
       {wallets.map((wallet) => {
-        return (
-          <Button
-            key={wallet.name}
-            size="large"
-            type={wallet === selected ? 'primary' : 'ghost'}
-            onClick={() => { select(wallet.name); close(); }}
-            icon={
-              <img
-                alt={`${wallet.name}`}
-                width={20}
-                height={20}
-                src={wallet.icon}
-                style={{marginRight: 8}}
-              />
-            }
-            style={{
-              display: 'block',
-              width: '100%',
-              textAlign: 'left',
-              marginBottom: 8,
-            }}
-          >
-            {wallet.name}
-          </Button>
-        );
+          return (
+            <Button
+              key={wallet.name}
+              size="large"
+              type={wallet === selected ? 'primary' : 'ghost'}
+              onClick={() => { select(wallet.name); close(); }}
+              icon={
+                <img
+                  alt={`${wallet.name}`}
+                  width={20}
+                  height={20}
+                  src={wallet.icon}
+                  style={{marginRight: 8}}
+                />
+              }
+              style={{
+                display: 'block',
+                width: '100%',
+                textAlign: 'left',
+                marginBottom: 8,
+              }}
+            >
+              {wallet.name}
+            </Button>
+          );
       })}
     </Modal>
   );
@@ -175,14 +170,7 @@ export const WalletProvider = ({ children }: {children: ReactNode }) => {
   const wallets = useMemo(
     () => [
       getPhantomWallet(),
-      getSlopeWallet(),
-      getSolflareWallet(),
-      getTorusWallet({
-        options: { clientId: 'Get a client ID @ https://developer.tor.us' }
-      }),
       getLedgerWallet(),
-      getSolletWallet({ network }),
-      getSolletExtensionWallet({ network }),
     ],
     []
   );
